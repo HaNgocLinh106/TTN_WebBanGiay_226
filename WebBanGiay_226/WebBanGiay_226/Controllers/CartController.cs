@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebBanGiay_226.Models.Fun;
 using WebBanGiay_226.Models.EF;
+using WebBanGiay_226.Common;
 
 namespace WebBanGiay_226.Controllers
 {
@@ -37,7 +38,7 @@ namespace WebBanGiay_226.Controllers
             var cart = (Cart)Session[CartSession];
 
             var sizemau = Request.Form["sizemau"];
-            Console.WriteLine(sizemau);           
+            Console.WriteLine(sizemau);
 
             if (cart != null)
             {
@@ -131,6 +132,7 @@ namespace WebBanGiay_226.Controllers
         [HttpPost]
         public ActionResult ThanhToan(string shipName, string mobile, string address, string hinhthuctt)
         {
+
             var giohang = new GioHang();
             giohang.NgayThang = DateTime.Now;
             giohang.DiaChi = address;
@@ -143,14 +145,19 @@ namespace WebBanGiay_226.Controllers
                 var id = new CartF().Insert(giohang);
                 var cart = (Cart)Session[CartSession];
                 var ctghF = new CartDetailF();
+                //var ctsp = new CartF();
+               
                 foreach (var it in cart.Lines)
                 {
+                    //var sanpham = new ChiTietSanPham();
                     var ctgh = new ChiTietGioHang();
                     ctgh.MaCTSP = it.ViewSanPham.MaCTSP;
                     ctgh.MaGioHang = id;
                     ctgh.DonGia = it.ViewSanPham.DonGia;
                     ctgh.SoLuong = it.Quantity;
+                    //sanpham.SoLuong = sanpham.SoLuong - it.Quantity;
                     ctghF.Insert(ctgh);
+                    //ctsp.Update(sanpham);
                 }
             }
             catch (Exception ex)
@@ -158,7 +165,9 @@ namespace WebBanGiay_226.Controllers
                 return Redirect("/loi-thanh-toan");
             }
             return Redirect("/hoan-thanh");
+
         }
+
 
         public ActionResult ThanhCong()
         {

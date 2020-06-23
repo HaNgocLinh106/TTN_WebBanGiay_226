@@ -15,7 +15,7 @@ namespace WebBanGiay_226.Controllers
         public ActionResult Index()
         {
             return View();
-        }
+        }       
         public ActionResult AllSanPham()
         {
             var model = db.SanPhams.ToList();

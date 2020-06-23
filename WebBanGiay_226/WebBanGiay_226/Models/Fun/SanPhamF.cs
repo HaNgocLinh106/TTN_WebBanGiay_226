@@ -21,10 +21,11 @@ namespace WebBanGiay_226.Models.Fun
         {
             return db.SanPhams.Find(id);
         }
-        public List<ViewSanPham> TimKiemSP(string TenSanPham)
+        public List<SanPham> TimKiemSP(string TenSanPham)
         {
-            return db.ViewSanPhams.Where(x => x.TenSanPham == TenSanPham).ToList();
+            return db.SanPhams.Where(x => x.TenSanPham.Contains(TenSanPham)).ToList();
         }
+        
         public ViewSanPham FindEntity(long MaOD)
         {
             return db.ViewSanPhams.Find(MaOD);

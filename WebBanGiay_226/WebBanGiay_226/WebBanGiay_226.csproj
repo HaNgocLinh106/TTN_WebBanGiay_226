@@ -128,9 +128,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +154,9 @@
     <Compile Include="Models\Fun\ChiTietSanPhamF.cs" />
     <Compile Include="Models\Fun\DanhMucF.cs" />
     <Compile Include="Models\Fun\SanPhamF.cs" />
+    <Compile Include="Models\Fun\UserF.cs" />
+    <Compile Include="Models\User\LoginModel.cs" />
+    <Compile Include="Models\User\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -551,6 +557,12 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\ThanhToan.cshtml" />
     <Content Include="Views\Cart\ThanhCong.cshtml" />
+    <Content Include="Views\Home\AllSanPham.cshtml" />
+    <Content Include="Views\Home\TimKiem.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Shared\LayoutUser.cshtml" />
+    <Content Include="Views\User\TaiKhoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

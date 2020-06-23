@@ -26,16 +26,15 @@ namespace WebBanGiay_226
              defaults: new { controller = "SanPham", action = "ChiTietSanPham", id = UrlParameter.Optional },
              namespaces: new[] { "WebBanGiay_226.Controllers" }
          );
-
+            
             routes.MapRoute(
-            name: "Tài khoản khách hàng",
-            url: "tai-khoan-khach-hang/{SDT}-{MaGioHang}",
-            defaults: new { controller = "User", action = "TaiKhoanKhachHang", id = UrlParameter.Optional },
+            name: "Tài khoản",
+            url: "tai-khoan/{MaNguoiDung}",
+            defaults: new { controller = "User", action = "TaiKhoan", id = UrlParameter.Optional },
             namespaces: new[] { "WebBanGiay_226.Controllers" }
         );
             routes.MapRoute(
-            name: "Thêm giỏ hàng",
-            //url: "them-gio-hang/{MaGiay}-{SoLuong}",
+            name: "Thêm giỏ hàng",          
             url: "them-gio-hang",
             defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
             namespaces: new[] { "WebBanGiay_226.Controllers" }

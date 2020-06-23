@@ -19,5 +19,16 @@ namespace WebBanGiay_226.Models.Fun
             db.SaveChanges();
             return giohang.MaGioHang;
         }
+
+        public long Update(ChiTietSanPham chitietsp)
+        {
+            
+                var ctsp = db.ChiTietSanPhams.Find(chitietsp.MaCTSP);
+                ctsp.SoLuong = chitietsp.SoLuong;              
+                db.SaveChanges();
+                return ctsp.MaCTSP;
+            
+
+        }
     }
 }
