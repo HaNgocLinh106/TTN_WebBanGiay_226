@@ -44,7 +44,7 @@
         <div id="example1">
             <div id="owl-demo" class="owl-carousel text-center">
                 <div class="item">
-                    <a href="product.html" title="image" rel="title1">
+                    <a href="/Home/AllSanPham" title="image" rel="title1">
                         <img class="img-responsive " src="/Content/images/pr3.png" alt="">
                         <div class="run">
                             <i> </i>
@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="product.html" title="image" rel="title1">
+                    <a href="/Home/AllSanPham" title="image" rel="title1">
                         <img class="img-responsive " src="/Content/images/sh.png" alt="">
                         <div class="run">
                             <i class="foot-in"> </i>
@@ -62,7 +62,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="product.html" title="image" rel="title1">
+                    <a href="/Home/AllSanPham" title="image" rel="title1">
                         <img class="img-responsive " src="/Content/images/conv1.PNG" alt="">
                         <div class="run">
                             <i class="cycling"> </i>
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="product.html" title="image" rel="title1">
+                    <a href="/Home/AllSanPham" title="image" rel="title1">
                         <img class="img-responsive " src="/Content/images/sh2.png" alt="">
                         <div class="run">
                             <i class="fitness"> </i>
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="product.html" title="image" rel="title1">
+                    <a href="/Home/AllSanPham" title="image" rel="title1">
                         <img class="img-responsive " src="/Content/images/sh1.png" alt="">
                         <div class="run">
                             <i class="tennis"> </i>
@@ -100,37 +100,7 @@
     <h2 class="text-center">TOP SẢN PHẨM BÁN CHẠY</h2>
     <div class="content-grids">
 
-        <div class="col-md-4 content-grid">
-            <a href="single.html" class="lot"><img class="img-responsive " src="/Content/images/cv-removebg-preview.png" alt=""></a>
-            <div class="shoe">
-                <p>Giày thể thao Converse cổ cao</p>
-                <label>750.000đ</label>
-                <a href="single.html">Chi tiết</a>
-            </div>
-            <div class="clearfix"> </div>
-            <b class="plus-in"></b>
-        </div>
-        <div class="col-md-4 content-grid">
-            <a href="single.html" class="lot"><img class="img-responsive " src="/Content/images/sh1.png" alt=""></a>
-            <div class="shoe">
-                <p>Giày Nike 3.0</p>
-                <label>600.000đ</label>
-                <a href="single.html">Chi tiết</a>
-            </div>
-            <div class="clearfix"> </div>
-
-        </div>
-        <div class="col-md-4 content-grid">
-            <a href="single.html" class="lot"><img class="img-responsive " src="/Content/images/sh2.png" alt=""></a>
-            <div class="shoe">
-                <p>Giày adidas neo</p>
-                <label>950.000đ</label>
-                <a href="single.html">Chi tiết</a>
-            </div>
-
-            <div class="clearfix"> </div>
-
-        </div>
+        @{Html.RenderAction("ListSanPham", "SanPham");}
 
         <div class="clearfix"> </div>
     </div>
@@ -230,7 +200,7 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-            <a href="contact.html" class="view">Gửi phản hồi cho chúng tôi!</a>
+            <a href="/Home/PhanHoi" class="view">Gửi phản hồi cho chúng tôi!</a>
         </div>
         <div class="clearfix"> </div>
     </div>

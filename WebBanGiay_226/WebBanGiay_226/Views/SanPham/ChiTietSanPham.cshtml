@@ -73,7 +73,7 @@
                             </ul>
                             <div class="review">
                                 <a href="#"> Xem phản hồi </a>/
-                                <a href="contact.html">  Viết phản hồi</a>
+                                <a href="/Home/PhanHoi">  Viết phản hồi</a>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -115,7 +115,7 @@
 
                 <div class="clearfix"> </div>
 
-                @*@{Html.RenderAction("ListSanPham", "SanPham");}*@
+                @{Html.RenderAction("ListSanPham", "SanPham");}
 
             </div>
             <div class="col-md-3">
@@ -165,30 +165,7 @@
                 </div>
                 <div class="single-bottom">
                     <h4>Sản phẩm tương tự</h4>
-                    <div class="product-go">
-                        <img class="img-responsive fashion" src="/Content/images/sh.png" alt="">
-                        <div class="grid-product">
-                            <a href="#" class="elit">Giày nike force</a>
-                            <span class=" price-in"><small>500.000đ</small> 400.000đ</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="product-go">
-                        <img class="img-responsive fashion" src="/Content/images/sh1.png" alt="">
-                        <div class="grid-product">
-                            <a href="#" class="elit">Giày gymer</a>
-                            <span class=" price-in"><small>550.000đ</small> 400.000đ</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="product-go">
-                        <img class="img-responsive fashion" src="/Content/images/sh2.png" alt="">
-                        <div class="grid-product">
-                            <a href="#" class="elit">Giày thời trang</a>
-                            <span class=" price-in"><small>350.000đ</small> 300.000đ</span>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
+                    @{Html.RenderAction("ListSanPhamLQ", "SanPham");}
                 </div>
             </div>
             <div class="clearfix"> </div>

@@ -26,6 +26,11 @@ namespace WebBanGiay_226.Controllers
             var model = new SanPhamF().ListSP(3);
             return PartialView(model);
         }
+        public PartialViewResult ListSanPhamLQ()
+        {
+            var model = new SanPhamF().ListSP(3);
+            return PartialView(model);
+        }
 
         public ActionResult SanPham(long MaDanhMuc)
         {
