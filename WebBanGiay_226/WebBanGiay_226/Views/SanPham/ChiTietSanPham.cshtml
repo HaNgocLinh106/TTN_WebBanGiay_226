@@ -1,0 +1,200 @@
+﻿@using WebBanGiay_226.Models.EF
+@*@model List<Model.EF.SanPham>*@
+
+    @{
+        ViewBag.Title = "ChiTietSanPham";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+        var giayOd = (WebBanGiay_226.Models.EF.ViewSanPham)ViewBag.GiayOD;
+        var giay = (List<WebBanGiay_226.Models.EF.ViewSanPham>)ViewBag.Giay;
+    }
+
+    <link rel="stylesheet" href="/Content/css/etalage.css">
+    <script src="/Content/js/jquery.etalage.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $('#etalage').etalage({
+                thumb_image_width: 300,
+                thumb_image_height: 400,
+                source_image_width: 900,
+                source_image_height: 1200,
+                show_hint: true,
+                click_callback: function (image_anchor, instance_id) {
+                    alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+                }
+            });
+
+        });
+    </script>
+    <style>
+        .textcl {
+            color: white;
+        }
+    </style>
+
+    <style>
+        .textcl {
+            color: white;
+        }
+    </style>
+    <div class="container">
+        <div class="single">
+            <div class="col-md-9 top-in-single">
+
+                <div class="col-md-5 single-top">
+                    <ul id="etalage">
+
+                        @foreach (var it in giay)
+                        {
+                            <li>
+                                <a href="">
+                                    <img class="etalage_thumb_image img-responsive" src="~/Content/images/@it.LinkAnh" alt="">
+                                    <img class="etalage_source_image img-responsive" src="~/Content/images/@it.LinkAnh" alt="">
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+
+                </div>
+                <div class="col-md-7 single-top-in">
+
+                    <div class="single-para">
+                        <h4>@giayOd.TenSanPham</h4>
+                        <p></p>
+                        <div class="star">
+                            <ul>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                            </ul>
+                            <div class="review">
+                                <a href="#"> Xem phản hồi </a>/
+                                <a href="contact.html">  Viết phản hồi</a>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                        <label class="add-to">@giayOd.DonGia VNĐ</label>
+                        @using (Html.BeginForm("AddItem", "Cart", new { id = giayOd.MaCTSP, returnURL = Request.Url.AbsoluteUri }))
+                        {
+                            <div class="available">
+                                <ul>
+                                    <li>
+                                        <select name="sizemau" id="sizemau">
+                                            @foreach (var it in giay)
+                                            {
+                                                <option>Size : @it.Size - Màu: @it.Mau</option>
+                                            }
+
+                                        </select>
+                                    </li>
+
+                                </ul>                 
+                                <br>
+                                @*<ul>
+                                    <li>Số lượng: <input type="number" min="0" name="SoLuong" value=""></li>
+                                </ul>*@
+                            </div>
+
+                            @*<a href="/them-gio-hang/@giayOd.MaGiay-@giayOd.SoLuong" class="cart ">Thêm vào giỏ hàng</a>*@
+                            @*<a href="/them-gio-hang?MaGiay=@giayOd.MaCTSP&SoLuong=1 class="cart ">Thêm vào giỏ hàng</a>*@
+                            @*@Html.ActionLink("Thêm vào giỏ hàng", "them-gio-hang", new { MaGiay = giayOd.MaGiay }, new { SoLuong = sl })*@
+                            <button type="submit" class="btn btn-fefault cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                @*<a href="/Cart/AddItem/@Model.MaOD?returnURL=@Request.RawUrl">Thêm vào giỏ</a>*@
+                                @*<a href="">Thêm vào giỏ</a>*@
+                                Thêm vào giỏ
+                            </button>
+                            }
+                        </div>
+                </div>
+
+                <div class="clearfix"> </div>
+
+                @*@{Html.RenderAction("ListSanPham", "SanPham");}*@
+
+            </div>
+            <div class="col-md-3">
+                <div class="single-bottom">
+                    <h4>Mô tả</h4>
+                    <ul>
+                        <li>
+
+                            <label for="brand"><span></span> Chất liệu cao cấp</label>
+                        </li>
+                        <li>
+
+                            <label for="brand1"><span></span> Bền đẹp theo thời gian</label>
+                        </li>
+                        <li>
+
+                            <label for="brand2"><span></span> Thiết kế thời trang</label>
+                        </li>
+                        <li>
+
+                            <label for="brand3"><span></span> Kiểu dáng phong cách</label>
+                        </li>
+                        <li>
+
+                            <label for="brand4"><span></span>Độ bền cao</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="single-bottom">
+                    <h4>Chất liệu</h4>
+                    <ul>
+                        <li>
+
+                            <label for="color"><span></span> Chất vải dày dặn</label>
+                        </li>
+                        <li>
+
+                            <label for="color1"><span></span> Đệm chân Ortholite mềm mại hỗ trợ đi lại cả ngày</label>
+                        </li>
+                        <li>
+
+                            <label for="color2"><span></span> Chi tiết kim loại cao cấp chống rỉ sét</label>
+                        </li>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="single-bottom">
+                    <h4>Sản phẩm tương tự</h4>
+                    <div class="product-go">
+                        <img class="img-responsive fashion" src="/Content/images/sh.png" alt="">
+                        <div class="grid-product">
+                            <a href="#" class="elit">Giày nike force</a>
+                            <span class=" price-in"><small>500.000đ</small> 400.000đ</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="product-go">
+                        <img class="img-responsive fashion" src="/Content/images/sh1.png" alt="">
+                        <div class="grid-product">
+                            <a href="#" class="elit">Giày gymer</a>
+                            <span class=" price-in"><small>550.000đ</small> 400.000đ</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="product-go">
+                        <img class="img-responsive fashion" src="/Content/images/sh2.png" alt="">
+                        <div class="grid-product">
+                            <a href="#" class="elit">Giày thời trang</a>
+                            <span class=" price-in"><small>350.000đ</small> 300.000đ</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+
+

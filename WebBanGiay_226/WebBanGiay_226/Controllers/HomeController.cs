@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBanGiay_226.Models.EF;
+using WebBanGiay_226.Models.Fun;
 
 namespace WebBanGiay_226.Controllers
 {
     public class HomeController : Controller
     {
+        WebGiay db = new WebGiay();
+        // GET: Home
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult AllSanPham()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var model = db.SanPhams.ToList();
+            return View(model);
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult TimKiem(string search)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var model = new SanPhamF().TimKiemSP(search);
+            return View(model);
         }
     }
 }
